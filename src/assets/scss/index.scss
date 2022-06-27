@@ -1,0 +1,17 @@
+@use './_reset.scss';
+
+@font-face {
+  font-family: minipax;
+  src: url("/src/assets/fonts/Minipax-Regular.otf") format('opentype');
+}
+
+#app {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1110px;
+  margin: 0 auto;
+}
