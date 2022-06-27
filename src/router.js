@@ -1,15 +1,13 @@
-import Home from '/src/views/Home.vue';
-import Resume from '/src/views/Resume.vue';
+// import Home from '/src/views/Home.vue';
+// import Resume from '/src/views/Resume.vue';
+import BigView from '/src/views/BigView.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [{
     path: '/',
-    component: Home
+    component: BigView
   },
-  {
-    path: "/resume",
-    component: Resume
-  },
+
 //   {
 //     path:'/:pathMatch(.*)*',
 //     component:rea

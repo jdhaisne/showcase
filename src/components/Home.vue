@@ -9,16 +9,10 @@ export default {
 
 <template>
   <section class="container presentation-section">
-    <svg class="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <circle fill="#E67870" cx="0" cy="75" r="7.5"/>
-      <circle fill="#E67870" cx="30" cy="25" r="15"/>
-      <circle fill="#E67870" cx="95" cy="60" r="25"/>
-    </svg>
     <div class="info-wrapper">
       <h1 class="title">Julien Dhaisne</h1>
       <p class="subtitle">Full-Stack Developer</p>
     </div>
-    <img class="image-side" src="/src/assets/images/plant.png" alt="">
   </section>
 </template>
 

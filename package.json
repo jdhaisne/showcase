@@ -10,6 +10,7 @@
   "dependencies": {
     "sass": "^1.52.1",
     "vue": "^3.2.25",
+    "vue-fullpage.js": "^0.2.5",
     "vue-router": "^4.0.15"
   },
   "devDependencies": {
