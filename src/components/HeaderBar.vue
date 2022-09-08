@@ -1,20 +1,38 @@
 <script>
 export default {
-  name: 'HeaderBar',
+  name: "HeaderBar",
+  //   emits: ["scrollTo"],
+  props: {
+    nbBtn: Number,
+  },
+  setup(props, context) {
+    console.log(props);
+    const onclickbtn = () => console.log("ab");
+
+    return { onclickbtn };
+  },
 };
 </script>
 
 <template>
-<div class="landing-link--wrapper">
-  <slot name="logo">
-  </slot>
+  <div class="headerBar headerBar__wrapper">
+    <div class="headerBar__logo">
+      <router-link class="logo-link" to="/">
+        <slot name="logo"> </slot>
+      </router-link>
+    </div>
+    <div class="headerBar__wrapper headerBar__btn__wrapper">
+      <template v-for="n in 3" :key="n">
+        <router-link class="logo-link" to="/">
+          <slot :name="`btn-${n}`"></slot>
+        </router-link>
+        <!-- <div class="headerBar__btn" @click="onclickbtn"> -->
 
-  <slot>
-  </slot>
-  
+        <!-- </div> -->
+      </template>
+    </div>
   </div>
 </template>
-
 
 <style lang="scss">
 .logo-placeholder {
@@ -28,24 +46,29 @@ export default {
   border-radius: 4px;
 }
 
-.landing-link--wrapper {
-  position: absolute;
+.headerBar {
+  position: fixed;
   left: 0;
   right: 0;
+  margin-left: auto;
+  margin-right: auto;
   top: 0;
   padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 3rem;
+  }
 }
 
 .logo-link {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
-.landing-link {
+.headerBar__btn {
   z-index: 1;
   font-family: montserrat;
   font-weight: 700;
@@ -55,10 +78,10 @@ export default {
   color: black;
   text-align: center;
   position: relative;
-   font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
   &::after {
-    transition: transform .3s ease-out;
+    transition: transform 0.3s ease-out;
     content: "";
     display: block;
     position: absolute;
@@ -73,8 +96,7 @@ export default {
   &:hover {
     &::after {
       transform: scaleX(1);
-    } 
+    }
   }
 }
-
 </style>

@@ -1,9 +1,9 @@
 <script>
-import HeaderBar from '../components/HeaderBar.vue';
+import HeaderBar from "../components/HeaderBar.vue";
 
 export default {
-    name: "Home",
-    components: { HeaderBar }
+  name: "Home",
+  components: { HeaderBar },
 };
 </script>
 
@@ -17,8 +17,6 @@ export default {
 </template>
 
 <style lang="scss">
-
-
 .svg {
   height: 100vh;
   width: 100%;
@@ -37,7 +35,6 @@ export default {
   justify-content: space-between;
 }
 
-
 .image-side {
   transform: scaleX(-1);
   z-index: 0;
@@ -46,12 +43,12 @@ export default {
 .title {
   font-size: 4rem;
   letter-spacing: 2px;
-  font-family: 'minipax';
+  font-family: "minipax";
 }
 
 .subtitle {
   font-size: 2rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .info-wrapper {
