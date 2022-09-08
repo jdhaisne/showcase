@@ -5,6 +5,7 @@
   src: url("/src/assets/fonts/Minipax-Regular.otf") format('opentype');
 }
 
+html { overflow: hidden;}
 #app {
   height: 100%;
   font-family: 'Montserrat', sans-serif;

@@ -1,9 +1,24 @@
 <template>
-    <div class="fullpage__wrapper">
-        <section class="fullpage">
-            <home>
+    <FullPage>
+        <template v-slot:header>
+            <HeaderBar
+            >
+                <template v-slot:logo>
+                    <router-link class="logo-link" to="/"><div class="logo-placeholder">
+                        JD
+                    </div></router-link>
+                </template>
 
-            </home>
+                <button class="landing-link">About me</button>
+                <button class="landing-link">Resume</button>
+                <button class="landing-link">Contact</button>
+            </HeaderBar>
+            
+        </template>
+        <section class="fullpage">
+            <Home>
+
+            </Home>
         </section>
         <section class="fullpage">
             <hr>
@@ -19,16 +34,9 @@
             <hr>
             4
         </section>
-    </div>
-    <div class="section-menu">
-        <span
-        class="menu-point"
-        v-bind:class="{active: activeSection == index}"
-        @click="scrollToSection(index)"
-        v-for="(offset, index) in offsets"
-        v-bind:key="index">
-        </span>
-    </div>
+        
+    </FullPage>
+
 </template>
 
 <script>
@@ -37,111 +45,20 @@ import Home from '/src/components/Home.vue';
 import AboutMe from '/src/components/AboutMe.vue';
 import Resume from '/src/components/Resume.vue';
 import { ref } from 'vue';
+import FullPage from '../components/FullPage.vue';
 
 export default {
-    name: 'BigView',
-    setup () {
-        let inMove = false;
-        let activeSection = 0;
-        let offsets = [];
-        let stouchStartY = 0;
-
-        
-
-        function calculateSectionOffsets() {
-            console.log('calculate')
-            let sections = document.getElementsByTagName('section');
-            let length = sections.length;
-
-            for (let i=0;i < length;i++) {
-                let sectionOffset = sections[i].offsetTop;
-                offsets.push(sectionOffset)
-            }
-        };
-
-        function scrollToSection(id, force=false) {
-            if (inMove && !force) return false
-
-            activeSection = id;
-            inMove = false;
-
-            document.getElementsByTagName('section')[id].scrollIntoView({
-                behavior: 'smooth'
-            });
-
-            setTimeout(() => { inMove = false; }, 400);
-        };
-
-        function handleWheel(e) {
-            console.log('handleWheel', inMove)
-            if(e.deltaY > 0 && !inMove) {
-                moveUp();
-            }
-            else if(e.deltaY < 0 && !inMove) {
-                moveDown();
-            }
-
-            e.preventDefault();
-            return false;
-        }
-
-        function moveDown() {
-            console.log('down')
-            inMove = true;
-            activeSection--;
-
-            if(activeSection < 0)
-                activeSection = offsets.length - 1;
-            
-             scrollToSection(activeSection, true);
-        }
-
-        function moveUp() {
-            console.log('up')
-            inMove = true;
-            activeSection++;
-
-            if (activeSection > offsets.length - 1)
-                activeSection = 0;
-
-            scrollToSection(activeSection, true);
-        }
-
-        function created () {
-            calculateSectionOffsets();
-            window.addEventListener('wheel', handleWheel, {passive: false});
-            window.addEventListener('scroll', (e) => { console.log(e)})
-        }
-
-        function destroyed() {
-            window.removeEventListener('wheel', handleWheel, {passive: false});
-        }
-
-
+    name: "BigView",
+    setup() {
         return {
-            created,
-            destroyed,
-            scrollToSection,
-            activeSection,
-            offsets,
-            component: {HeaderBar, Home, AboutMe, Resume},
-            
-        }
+        };
     },
-    mounted() {
-        this.created();
-    },
-    unmounted() {
-        this.destroyed();
-    }
+    components: { FullPage, HeaderBar, Home, AboutMe, Resume }
 }
 </script>
 
 <style lang="scss" scoped> 
-body {
-    overflow: hidden; 
-
-}
+html { overflow: hidden;}
 
 .fullpage__wrapper {
     background: white;

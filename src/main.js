@@ -9,6 +9,7 @@ import HeaderBar from '/src/components/HeaderBar.vue';
 import Home from '/src/components/Home.vue'
 import AboutMe from '/src/components/AboutMe.vue'
 import Resume from '/src/components/Resume.vue'
+import FullPage from '/src/components/FullPage.vue';
 
 import '/src/assets/scss/index.scss';
 
@@ -18,6 +19,7 @@ app.component('HeaderBar', HeaderBar)
 .component('Home', Home)
 .component('AboutMe', AboutMe)
 .component('Resume', Resume)
+.component('FullPage', FullPage)
 
 app.use(router)
 app.use(VueFullPage)

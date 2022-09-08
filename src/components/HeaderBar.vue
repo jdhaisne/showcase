@@ -6,14 +6,15 @@ export default {
 
 <template>
 <div class="landing-link--wrapper">
-    <router-link class="logo-link" to="/"><div class="logo-placeholder">
-      JD
-    </div></router-link>
-    <router-link class="landing-link" to="/portfolio">About me</router-link>
-    <router-link class="landing-link" to="/resume">Resume</router-link>
-    <router-link class="landing-link" to="/portfolio">Contact</router-link>
+  <slot name="logo">
+  </slot>
+
+  <slot>
+  </slot>
+  
   </div>
 </template>
+
 
 <style lang="scss">
 .logo-placeholder {

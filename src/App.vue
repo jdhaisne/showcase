@@ -5,7 +5,6 @@ import HeaderBar from './components/HeaderBar.vue';
 </script>
 
 <template>
-<HeaderBar></HeaderBar>
   <router-view />
 </template>
 
