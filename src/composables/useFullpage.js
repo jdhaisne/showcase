@@ -1,7 +1,8 @@
+import { ref } from "vue";
 export function useScrollHandler() {
-  const offsets = [];
+  const offsets = ref([]);
   let touchStartY = 0;
-  let activeSection = 0;
+  let activeSection = ref(0);
   let inMove = false;
 
   const mountHandler = () => {
@@ -63,8 +64,8 @@ export function useScrollHandler() {
       inMove,
       e.target,
       e.deltaY,
-      activeSection,
-      offsets.length
+      activeSection.value,
+      offsets.value.length
     );
 
     if (e.deltaY > 0 && !inMove) {
@@ -101,30 +102,30 @@ export function useScrollHandler() {
   const moveUp = () => {
     console.log("up");
     inMove = true;
-    activeSection++;
+    activeSection.value++;
 
-    if (activeSection > offsets.length - 1) activeSection = 0;
+    if (activeSection.value > offsets.value.length - 1) activeSection.value = 0;
 
-    // if(activeSection < offsets.length - 1) activeSection++ ;
-    scrollToSection(activeSection, true);
+    // if(activeSection < offsets.value.length - 1) activeSection++ ;
+    scrollToSection(activeSection.value, true);
   };
 
   const moveDown = () => {
     console.log("down");
     inMove = true;
-    activeSection--;
+    activeSection.value--;
 
-    if (activeSection < 0) activeSection = offsets.length - 1;
+    if (activeSection.value < 0) activeSection.value = offsets.value.length - 1;
 
-    // if(activeSection > 0) activeSection--;
-    scrollToSection(activeSection, true);
+    // if(activeSection.value > 0) activeSection.value--;
+    scrollToSection(activeSection.value, true);
   };
 
   const scrollToSection = (id, force = false) => {
     console.log("scrolltoSec", id, force, inMove);
     if (inMove && !force) return false;
 
-    activeSection = id;
+    activeSection.value = id;
     inMove = true;
     document
       .getElementsByClassName("fullpage")
@@ -141,8 +142,14 @@ export function useScrollHandler() {
     let length = sections.length;
     for (let i = 0; i < length; i++) {
       let sectionOffset = sections[i].offsetTop;
-      offsets.push(sectionOffset);
+      offsets.value.push(sectionOffset);
     }
   };
-  return { mountHandler, unmountHandler, offsets, scrollToSection };
+  return {
+    mountHandler,
+    unmountHandler,
+    offsets,
+    activeSection,
+    scrollToSection,
+  };
 }

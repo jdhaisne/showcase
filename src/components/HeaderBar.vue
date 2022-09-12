@@ -17,19 +17,12 @@ export default {
 <template>
   <div class="headerBar headerBar__wrapper">
     <div class="headerBar__logo">
-      <router-link class="logo-link" to="/">
-        <slot name="logo"> </slot>
-      </router-link>
+      <!-- <router-link class="logo-link" to="/"> -->
+      <slot name="logo"></slot>
+      <!-- </router-link> -->
     </div>
     <div class="headerBar__wrapper headerBar__btn__wrapper">
-      <template v-for="n in 3" :key="n">
-        <router-link class="logo-link" to="/">
-          <slot :name="`btn-${n}`"></slot>
-        </router-link>
-        <!-- <div class="headerBar__btn" @click="onclickbtn"> -->
-
-        <!-- </div> -->
-      </template>
+      <slot name="headerBar-btn"></slot>
     </div>
   </div>
 </template>

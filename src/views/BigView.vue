@@ -1,13 +1,19 @@
 <template>
   <HeaderBar :nbBtn="3">
     <template #logo>
-      <div class="logo-placeholder">JD</div>
+      <button class="logo-placeholder" @click="scrollToSection(0, true)">
+        JD
+      </button>
     </template>
-    <template #btn-1>About me</template>
-    <template #btn-2>Resume</template>
-    <template #btn-3>Contact</template>
+    <template #headerBar-btn>
+      <button @click="scrollToSection(1, true)">About me</button>
+      <button @click="scrollToSection(2, true)">Resume</button>
+      <button @click="scrollToSection(3, true)">Contact</button>
+    </template>
+    <!-- <template #btn-1></template>
+    <template #btn-2></template>
+    <template #btn-3></template> -->
   </HeaderBar>
-
   <section class="fullpage">
     <Home> </Home>
   </section>
@@ -55,13 +61,19 @@ import FullPage from "../components/FullPage.vue";
 export default {
   name: "BigView",
   setup() {
-    const { mountHandler, unmountHandler, offsets, scrollToSection } =
-      useScrollHandler();
+    const {
+      mountHandler,
+      unmountHandler,
+      offsets,
+      activeSection,
+      scrollToSection,
+    } = useScrollHandler();
 
     return {
       mountHandler,
       unmountHandler,
       offsets,
+      activeSection,
       scrollToSection,
     };
   },
@@ -99,7 +111,7 @@ html {
 .section-menu .menu-point {
   width: 10px;
   height: 10px;
-  background-color: #fff;
+  background-color: black;
   display: block;
   margin: 1rem 0;
   opacity: 6;

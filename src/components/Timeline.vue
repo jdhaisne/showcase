@@ -16,11 +16,13 @@
         </div>
       </div>
     </div>
+    <div class="timeline__line" :style="lineStyle"></div>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
+import { routeLocationKey } from "vue-router";
 export default {
   name: "Timeline",
   props: {
@@ -31,6 +33,7 @@ export default {
   },
   setup() {
     const divs = document.getElementsByClassName("timeline__event");
+    let lineStyle = ref({});
     const thickness = 2;
     const leftOffset = -41.5;
     function getOffset(el) {
@@ -66,34 +69,21 @@ export default {
       // angle
       var angle = Math.atan2(y1 - y2, x1 - x2) * (180 / Math.PI);
       // make hr
-      var htmlLine =
-        "<div class='htmlline' style='padding:0px; z-index: 0; margin:0px; height:" +
-        thickness +
-        "px; background-color:" +
-        color +
-        "; line-height:1px; position:absolute; left:" +
-        cx +
-        "px; top:" +
-        cy +
-        "px; width:" +
-        length +
-        "px; -moz-transform:rotate(" +
-        angle +
-        "deg); -webkit-transform:rotate(" +
-        angle +
-        "deg); -o-transform:rotate(" +
-        angle +
-        "deg); -ms-transform:rotate(" +
-        angle +
-        "deg); transform:rotate(" +
-        angle +
-        "deg);' />";
-      document.body.innerHTML += htmlLine;
+      lineStyle.value = {
+        height: thickness + "px",
+        backgroundColor: color,
+        left: cx + "px",
+        top: cy + "px",
+        width: length + "px",
+        "-moz-transform": `rotate(${angle}deg)`,
+        "-webkit-transform": `rotate(${angle}deg)`,
+        "-o-transform": `rotate(${angle}deg)`,
+        "-ms-transform": `rotate(${angle}deg)`,
+        transform: `rotate(${angle}deg)`,
+      };
     }
 
     function reDrawLine() {
-      const line = document.getElementsByClassName("htmlline");
-      line[0].remove();
       drawLine(divs[0], divs[2], "#9251ac", thickness, leftOffset);
     }
 
@@ -103,6 +93,7 @@ export default {
       leftOffset,
       drawLine,
       reDrawLine,
+      lineStyle,
     };
   },
   mounted() {
@@ -204,6 +195,13 @@ export default {
         content: none;
       }
     }
+  }
+  &__line {
+    padding: 0px;
+    z-index: 0;
+    margin: 0px;
+    line-height: 1px;
+    position: absolute;
   }
 }
 </style>

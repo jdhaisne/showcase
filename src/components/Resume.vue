@@ -1,31 +1,28 @@
 <script>
-import HeaderBar from '../components/HeaderBar.vue';
-import Timeline from '../components/Timeline.vue';
-import Skills from '../components/Skills.vue';
+import HeaderBar from "../components/HeaderBar.vue";
+import Timeline from "../components/Timeline.vue";
+import Skills from "../components/Skills.vue";
 
 export default {
-    name: "Resume",
-    components: { HeaderBar, Timeline, Skills },
-    setup() {
-        
-        return {
-            events: ['2019-curent', '2018-2019', '2018-2015'],
-            Skills: ['vue.js', 'python', 'c++']
-            // eventSlots: ['slot-1996', 'slot-2000', 'slot-2005']
-        };
-    },
+  name: "Resume",
+  components: { HeaderBar, Timeline, Skills },
+  setup() {
+    return {
+      events: ["2019-curent", "2018-2019", "2018-2015"],
+      Skills: ["vue.js", "python", "c++"],
+      // eventSlots: ['slot-1996', 'slot-2000', 'slot-2005']
+    };
+  },
 };
 </script>
 
 <template>
-    <div>
-        <div class="skill__wrapper">
-            <Skills :skills="Skills">
-
-            </Skills>
-        </div>
-        <div class="timeline__wrapper">
-            <Timeline :events="events">
+  <div>
+    <div class="skill__wrapper">
+      <Skills :skills="Skills"> </Skills>
+    </div>
+    <div class="timeline__wrapper">
+      <Timeline :events="events">
 
                 <template #2019-curent-description>
                     <p>
@@ -66,8 +63,8 @@ export default {
                     </p>
                 </template>
             </Timeline>
-        </div>
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -104,5 +101,4 @@ export default {
 //         padding: 5px;
 //     }
 // }
-
 </style>
