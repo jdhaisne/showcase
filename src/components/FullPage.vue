@@ -23,7 +23,7 @@ import HeaderBar from "/src/components/HeaderBar.vue";
 import Home from "/src/components/Home.vue";
 import AboutMe from "/src/components/AboutMe.vue";
 import Resume from "/src/components/Resume.vue";
-import { useScrollHandler } from "/src/composables/useFullpage.js";
+import { useScroll } from "/src/composables/useFullpage.js";
 import { ref } from "vue";
 
 export default {

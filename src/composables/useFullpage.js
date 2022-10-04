@@ -1,5 +1,6 @@
 import { ref } from "vue";
-export function useScrollHandler() {
+
+export function useScroll() {
   const offsets = ref([]);
   let touchStartY = 0;
   let activeSection = ref(0);
@@ -133,7 +134,7 @@ export function useScrollHandler() {
 
     setTimeout(() => {
       inMove = false;
-    }, 400);
+    }, 800);
   };
 
   const calculateSectionOffsets = () => {
