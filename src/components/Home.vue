@@ -21,8 +21,11 @@ export default {
 
 <template>
   <div ref="root" class="fullpage-slider">
-    <button class="slider__button-left" @click="changeSlideRef('prev')">
-      &lt;
+    <button
+      class="slider__button slider__button--left"
+      @click="changeSlideRef('prev')"
+    >
+      <i class="fa-solid fa-chevron-left"></i>
     </button>
     <div class="slides">
       <div class="slide active" data-index="0">
@@ -33,13 +36,16 @@ export default {
           </div>
         </section>
       </div>
-      <div class="slide next" data-index="1">slide 2</div>
-      <div class="slide" data-index="2">slide 3</div>
-      <div class="slide prev" data-index="3">slide 4</div>
+      <div class="bgred slide next" data-index="1">slide 2</div>
+      <div class="bggreen slide" data-index="2">slide 3</div>
+      <div class="bgblue slide prev" data-index="3">slide 4</div>
     </div>
 
-    <button class="slider__button-right" @click="changeSlideRef('next')">
-      >
+    <button
+      class="slider__button slider__button--right"
+      @click="changeSlideRef('next')"
+    >
+      <i class="fa-solid fa-chevron-right"></i>
     </button>
   </div>
 </template>
@@ -61,17 +67,38 @@ $easing: cubic-bezier(0.694, 0, 0.335, 1);
   height: 100%;
   width: 100%;
 }
-
+.bgred {
+  background-color: red;
+}
+.bggreen {
+  background-color: green;
+}
+.bgblue {
+  background-color: blue;
+}
 .fullpage-slider {
   position: relative;
   height: 100vh;
-  display: flex;
+  // display: flex;
 }
 
 .slider {
+  &__button {
+    z-index: 11;
+    position: absolute;
+
+    height: 100%;
+    width: 5%;
+    border: none;
+    background: rgba($color: #000000, $alpha: 0);
+    &--right {
+      left: 95%;
+      // transform: translate3d(95%, 0, 0);
+    }
+    // transform: translate3d(0, 50vh, 0);
+  }
 }
 .slides {
-  position: relative;
   flex: 1 1 100%;
   display: flex;
   align-items: flex-end;

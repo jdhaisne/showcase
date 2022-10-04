@@ -40,6 +40,7 @@ export default {
 }
 
 .headerBar {
+  z-index: 20;
   position: fixed;
   left: 0;
   right: 0;
