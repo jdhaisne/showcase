@@ -4,7 +4,7 @@
       class="slider__button slider__button--left"
       @click="changeSlideRef('prev')"
     >
-      <i class="fa-solid fa-chevron-left"></i>
+      <i class="fa-solid fa-chevron-left slider__button__icon"></i>
     </button>
     <div class="slides">
       <div class="slide active" data-index="0">jdbg</div>
@@ -17,7 +17,7 @@
       class="slider__button slider__button--right"
       @click="changeSlideRef('next')"
     >
-      <i class="fa-solid fa-chevron-right"></i>
+      <i class="fa-solid fa-chevron-right slider__button__icon"></i>
     </button>
   </div>
 </template>
