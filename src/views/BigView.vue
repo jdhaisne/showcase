@@ -6,9 +6,15 @@
       </button>
     </template>
     <template #headerBar-btn>
-      <button @click="scrollToSection(1, true)">About me</button>
-      <button @click="scrollToSection(2, true)">Resume</button>
-      <button @click="scrollToSection(3, true)">Contact</button>
+      <button class="headerbar__btn" @click="scrollToSection(1, true)">
+        About me
+      </button>
+      <button class="headerbar__btn" @click="scrollToSection(2, true)">
+        Resume
+      </button>
+      <button class="headerbar__btn" @click="scrollToSection(3, true)">
+        Contact
+      </button>
     </template>
     <!-- <template #btn-1></template>
     <template #btn-2></template>

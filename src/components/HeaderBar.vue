@@ -15,13 +15,13 @@ export default {
 </script>
 
 <template>
-  <div class="headerBar headerBar__wrapper">
-    <div class="headerBar__logo">
+  <div class="headerbar headerbar__wrapper">
+    <div class="headerbar__logo">
       <!-- <router-link class="logo-link" to="/"> -->
       <slot name="logo"></slot>
       <!-- </router-link> -->
     </div>
-    <div class="headerBar__wrapper headerBar__btn__wrapper">
+    <div class="headerbar__wrapper headerbar__btn__wrapper">
       <slot name="headerBar-btn"></slot>
     </div>
   </div>
@@ -37,9 +37,10 @@ export default {
   border: 2px solid black;
   font-weight: 700;
   border-radius: 4px;
+  background: none;
 }
 
-.headerBar {
+.headerbar {
   z-index: 20;
   position: fixed;
   left: 0;
@@ -62,7 +63,7 @@ export default {
   color: black;
 }
 
-.headerBar__btn {
+.headerbar__btn {
   z-index: 1;
   font-family: montserrat;
   font-weight: 700;
@@ -73,7 +74,9 @@ export default {
   text-align: center;
   position: relative;
   font-family: "Montserrat", sans-serif;
-
+  background: none;
+  border: none;
+  box-shadow: none;
   &::after {
     transition: transform 0.3s ease-out;
     content: "";
