@@ -8,7 +8,88 @@ export default {
   components: { HeaderBar, Timeline, Skills },
   setup() {
     return {
-      events: ["2019-curent", "2018-2019", "2018-2015"],
+      // events: ["2019-curent", "2018-2019", "2018-2015", "2015", "2000"],
+      events: [
+        {
+          timespan: "2019-curent",
+          color: "#9251ac",
+          eventTitle: "",
+          contents: [
+            {
+              titles: "Freelance for Alchemie record",
+              items: [
+                "Developement of a Vue.js showcase website for a recording studio",
+              ],
+            },
+            {
+              titles: "Freelance for OPB-consulting",
+              items: [
+                "Development of a visualisation tool for displaying links between various agents(hospitals, datacenter, software,...) and creating views to help the decision process and offer a better view of complex systems. Visualisation created using D3.js on an React based environment ",
+              ],
+            },
+          ],
+        },
+        {
+          timespan: "2019-2018",
+          color: "red",
+          eventTitle: "",
+          contents: [
+            {
+              titles: 'Internship at the "Datalab"',
+              items: [
+                "Development  of a Python  web application for automatic summary using press aggregate for use in market intelligence. Data collected using web-crawling.",
+                "Development of a Python web application for automatic data extraction and classification from car accident reports using OpenVison",
+              ],
+            },
+          ],
+        },
+        {
+          timespan: "2018-2015",
+          color: "#9251ac",
+          eventTitle: "",
+          contents: [
+            {
+              titles: "Ecole 42",
+              items: [
+                "C shell development",
+                "Mock Instagram application using Node.js with a MySQL database.",
+                "Development of  eMarket platform using PHP",
+              ],
+            },
+          ],
+        },
+        {
+          timespan: "2015",
+          color: "#9251ac",
+          eventTitle: "",
+          contents: [
+            {
+              titles: "Ecole 42",
+              items: [
+                "C shell development",
+                "Mock Instagram application using Node.js with a MySQL database.",
+                "Development of  eMarket platform using PHP",
+              ],
+            },
+          ],
+        },
+        {
+          timespan: "2000",
+          color: "#9251ac",
+          eventTitle: "",
+          contents: [
+            {
+              titles: "Ecole 42",
+              items: [
+                "C shell development",
+                "Mock Instagram application using Node.js with a MySQL database.",
+                "Development of  eMarket platform using PHP",
+              ],
+            },
+          ],
+        },
+      ],
+
       Skills: ["vue.js", "python", "c++"],
       // eventSlots: ['slot-1996', 'slot-2000', 'slot-2005']
     };
@@ -18,52 +99,11 @@ export default {
 
 <template>
   <div>
-    <div class="skill__wrapper">
+    <!-- <div class="skill__wrapper">
       <Skills :skills="Skills"> </Skills>
-    </div>
-    <div class="timeline__wrapper">
-      <Timeline :events="events">
+    </div> -->
 
-                <template #2019-curent-description>
-                    <p>
-                        <h4>Freelance for Alchemie record</h4>
-                        <ul>
-                            <li>Developement of a Vue.js showcase website for a recording studio
-                            </li>
-                        </ul>
-                    </p>
-                    <h4>Freelance for OPB-consulting</h4>
-                    <p>
-                        <ul>
-                            <li>Development of a visualisation tool for displaying links between various agents(hospitals, datacenter, software,...) and creating views to help the decision process and offer a better view of complex systems. Visualisation created using D3.js on an React based environment 
-                            </li>
-                        </ul>
-                    </p>
-                </template>
-                <template #2018-2019-description>
-                    <h4>Internship at the "Datalab"</h4>
-                    <p>
-                        <ul>
-                            <li>Development  of a Python  web application for automatic summary using press aggregate for use in market intelligence. Data collected using web-crawling.
-                            </li>
-                            <li>
-                                Development of a Python web application for automatic data extraction and classification from car accident reports using OpenVison
-                            </li>
-                        </ul>
-                    </p>
-                </template>
-                <template #2018-2015-description>
-                    <h4>"Ecole 42":</h4>
-                    <p>
-                        <ul>
-                            <li>C shell development</li>
-                            <li>Mock Instagram application using Node.js with a MySQL database.</li>
-                            <li>Development of  eMarket platform using PHP</li>
-                        </ul>
-                    </p>
-                </template>
-            </Timeline>
-    </div>
+    <Timeline :events="events" horizontal> </Timeline>
   </div>
 </template>
 
