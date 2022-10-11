@@ -1,17 +1,32 @@
 <template>
-  <div class="timeline" :class="{ 'timeline--horizontal': horizontal }">
+  <div
+    class="timeline"
+    :class="{ 'timeline--horizontal': horizontal }"
+    :style="{
+      '--scrollbar-primary-color': scrollbarColor.primary,
+      '--scrollbar-secondary-color': scrollbarColor.secondary,
+    }"
+  >
     <div
       class="timeline__event"
       :class="{ 'timeline__event--horizontal': horizontal }"
+      :style="{
+        '--icon-primary-color': event.secondaryColor,
+        '--icon-secondary-color': event.primaryColor,
+      }"
       v-for="event in events"
       :key="event"
     >
       <div
         class="timeline__event__icon"
         :class="{ 'timeline__event__icon--horizontal': horizontal }"
+        :style="{ 'background-color': event.primaryColor }"
       >
         <i></i>
-        <div class="timeline__event__date">
+        <div
+          class="timeline__event__date"
+          :style="{ color: event.secondaryColor }"
+        >
           {{ event.timespan }}
         </div>
       </div>
@@ -56,6 +71,9 @@ export default {
     events: {
       type: Array,
       required: true,
+    },
+    scrollbarColor: {
+      type: Object,
     },
     horizontal: {
       type: Boolean,
@@ -144,7 +162,7 @@ export default {
         lineStyles.value[i] = drawLine(
           divs[i],
           divs[i + 1],
-          props.events[i].color,
+          props.events[i].primaryColor,
           thickness,
           leftOffset,
           bottomOffset,
@@ -174,7 +192,7 @@ export default {
         this.drawLine(
           this.divs[i],
           this.divs[i + 1],
-          this.events[i].color,
+          this.events[i].primaryColor,
           this.thickness,
           this.leftOffset,
           this.bottomOffset,
@@ -209,6 +227,20 @@ export default {
     width: 100%;
     max-height: 100vh;
     overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-primary-color)
+      var(--scrollbar-secondary-color);
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--scrollbar-secondary-color);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-primary-color);
+      border-radius: 20px;
+      border: 3px solid var(--scrollbar-secondary-color);
+    }
   }
 
   &__event {
@@ -279,12 +311,12 @@ export default {
       width: 1rem;
       height: 1rem;
       position: absolute;
-      background: #f6a4ec;
+      background: var(--icon-primary-color);
       border-radius: 100%;
       left: -50px;
       top: 48%;
       // transform: translateY(-50%);
-      border: 2px solid #9251ac;
+      border: 2px solid var(--icon-secondary-color);
       z-index: 1;
     }
 

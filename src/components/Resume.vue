@@ -12,17 +12,18 @@ export default {
       events: [
         {
           timespan: "2019-curent",
-          color: "#9251ac",
+          primaryColor: "#9251ac",
+          secondaryColor: "#f6a4ec",
           eventTitle: "",
           contents: [
             {
-              titles: "Freelance for Alchemie record",
+              title: "Freelance for Alchemie record",
               items: [
                 "Developement of a Vue.js showcase website for a recording studio",
               ],
             },
             {
-              titles: "Freelance for OPB-consulting",
+              title: "Freelance for OPB-consulting",
               items: [
                 "Development of a visualisation tool for displaying links between various agents(hospitals, datacenter, software,...) and creating views to help the decision process and offer a better view of complex systems. Visualisation created using D3.js on an React based environment ",
               ],
@@ -31,11 +32,12 @@ export default {
         },
         {
           timespan: "2019-2018",
-          color: "red",
+          primaryColor: "red",
+          secondaryColor: "white",
           eventTitle: "",
           contents: [
             {
-              titles: 'Internship at the "Datalab"',
+              title: 'Internship at the "Datalab"',
               items: [
                 "Development  of a Python  web application for automatic summary using press aggregate for use in market intelligence. Data collected using web-crawling.",
                 "Development of a Python web application for automatic data extraction and classification from car accident reports using OpenVison",
@@ -45,11 +47,12 @@ export default {
         },
         {
           timespan: "2018-2015",
-          color: "#9251ac",
+          primaryColor: "#9251ac",
+          secondaryColor: "#f6a4ec",
           eventTitle: "",
           contents: [
             {
-              titles: "Ecole 42",
+              title: "Ecole 42",
               items: [
                 "C shell development",
                 "Mock Instagram application using Node.js with a MySQL database.",
@@ -60,11 +63,12 @@ export default {
         },
         {
           timespan: "2015",
-          color: "#9251ac",
+          primaryColor: "#9251ac",
+          secondaryColor: "#f6a4ec",
           eventTitle: "",
           contents: [
             {
-              titles: "Ecole 42",
+              title: "Ecole 42",
               items: [
                 "C shell development",
                 "Mock Instagram application using Node.js with a MySQL database.",
@@ -75,11 +79,12 @@ export default {
         },
         {
           timespan: "2000",
-          color: "#9251ac",
+          primaryColor: "#9251ac",
+          secondaryColor: "#f6a4ec",
           eventTitle: "",
           contents: [
             {
-              titles: "Ecole 42",
+              title: "Ecole 42",
               items: [
                 "C shell development",
                 "Mock Instagram application using Node.js with a MySQL database.",
@@ -103,7 +108,12 @@ export default {
       <Skills :skills="Skills"> </Skills>
     </div> -->
 
-    <Timeline :events="events" horizontal> </Timeline>
+    <Timeline
+      :events="events"
+      :scrollbarColor="{ primary: '#9251ac', secondary: '#f6a4ec' }"
+      horizontal
+    >
+    </Timeline>
   </div>
 </template>
 
