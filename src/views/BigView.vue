@@ -25,7 +25,7 @@
   </section>
   <section class="fullpage">
     <hr />
-    <AboutMe> </AboutMe>
+    <AboutMeSlideShow> </AboutMeSlideShow>
   </section>
   <section class="fullpage">
     <hr />
@@ -58,11 +58,11 @@
 // };
 import HeaderBar from "../components/HeaderBar.vue";
 import Home from "/src/components/Home.vue";
-import AboutMe from "/src/components/AboutMe.vue";
 import Resume from "/src/components/Resume.vue";
 import { useScroll } from "/src/composables/useFullScroll.js";
 import { ref } from "vue";
 import FullPage from "../components/FullPage.vue";
+import AboutMeSlideShow from "../components/AboutMeSlideShow.vue";
 
 export default {
   name: "BigView",
@@ -89,7 +89,7 @@ export default {
   unmounted() {
     this.unmountHandler();
   },
-  components: { FullPage, HeaderBar, Home, AboutMe, Resume },
+  components: { FullPage, HeaderBar, Home, Resume, AboutMeSlideShow },
 };
 </script>
 

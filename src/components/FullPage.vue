@@ -21,7 +21,7 @@
 <script>
 import HeaderBar from "/src/components/HeaderBar.vue";
 import Home from "/src/components/Home.vue";
-import AboutMe from "/src/components/AboutMe.vue";
+import AboutMeSlideShow from "/src/components/AboutMeSlideShow.vue";
 import Resume from "/src/components/Resume.vue";
 import { useScroll } from "/src/composables/useFullScroll.js";
 import { ref } from "vue";
