@@ -20,7 +20,7 @@
     <template #btn-2></template>
     <template #btn-3></template> -->
   </HeaderBar>
-  <section class="fullpage">
+  <section class="fullpage fullpage--centred">
     <Home> </Home>
   </section>
   <section class="fullpage">
@@ -35,7 +35,7 @@
     <hr />
     4
   </section>
-  <div class="section-menu">
+  <!-- <div class="section-menu">
     <span
       class="menu-point"
       v-bind:class="{ active: activeSection == index }"
@@ -44,7 +44,7 @@
       v-bind:key="index"
     >
     </span>
-  </div>
+  </div> -->
   <!-- <div @click="onclickbtn">bg</div> -->
 </template>
 

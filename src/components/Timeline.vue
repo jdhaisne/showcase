@@ -65,6 +65,7 @@
 
 <script>
 import { reactive, ref } from "vue";
+import { utils } from "../js/utils";
 export default {
   name: "Timeline",
   props: {
@@ -85,10 +86,9 @@ export default {
     const timeline = null;
     const lineStyles = ref([]);
     const thickness = 2;
-    const leftOffset = -41.5;
-    const bottomOffset = 32;
+    const leftOffset = -3; //rem
+    const bottomOffset = 3; //rem
 
-    console.log(timeline);
     function getOffset(el) {
       var rect = el.getBoundingClientRect();
       return {
@@ -108,10 +108,8 @@ export default {
       bottomOffset = 0,
       horizontal = false
     ) {
-      console.log("draw between", div1, div2);
       var off1 = getOffset(div1);
       var off2 = getOffset(div2);
-      console.log(off1, off2);
       if (!horizontal) {
         //middle left
         var x1 = off1.left + leftOffset;
@@ -155,21 +153,17 @@ export default {
     }
 
     function reDrawLine() {
-      console.log("redraw");
-      console.log(divs);
       for (let i = 0; i < divs.length - 1; i++) {
-        console.log(lineStyles[i]);
         lineStyles.value[i] = drawLine(
           divs[i],
           divs[i + 1],
           props.events[i].primaryColor,
           thickness,
-          leftOffset,
-          bottomOffset,
+          utils().rem(leftOffset),
+          utils().rem(bottomOffset),
           props.horizontal
         );
       }
-      console.log(lineStyles);
     }
 
     return {
@@ -181,28 +175,24 @@ export default {
       reDrawLine,
       lineStyles,
       timeline,
+      utils,
     };
   },
   mounted() {
-    console.log("mounted", this.lineStyles);
     this.timeline = document.querySelector(".timeline");
     for (let i = 0; i < this.divs.length - 1; i++) {
       this.lineStyles.push(
-        // ref(
         this.drawLine(
           this.divs[i],
           this.divs[i + 1],
           this.events[i].primaryColor,
           this.thickness,
-          this.leftOffset,
-          this.bottomOffset,
+          this.utils().rem(this.leftOffset),
+          this.utils().rem(this.bottomOffset),
           this.horizontal
         )
-        // )
       );
     }
-    console.log("mounted after draw", this.lineStyles[0]);
-    //this.drawLine(this.divs[1], this.divs[2], '#9251ac', this.thickness, this.leftOffset);
     window.addEventListener("resize", this.reDrawLine);
     this.timeline.addEventListener("scroll", this.reDrawLine);
   },
@@ -310,11 +300,11 @@ export default {
       content: "";
       width: 1rem;
       height: 1rem;
-      position: absolute;
       background: var(--icon-primary-color);
       border-radius: 100%;
-      left: -50px;
-      top: 48%;
+      position: absolute;
+      left: -3.5rem;
+      bottom: 50%;
       // transform: translateY(-50%);
       border: 2px solid var(--icon-secondary-color);
       z-index: 1;
@@ -332,7 +322,7 @@ export default {
       max-width: 500px;
       &:before {
         left: 50%;
-        top: 105%;
+        bottom: -3.5rem;
       }
     }
   }

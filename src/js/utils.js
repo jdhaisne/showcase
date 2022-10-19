@@ -20,5 +20,42 @@ export function utils() {
       nodeList[i].classList.add(...cssClasses);
     }
   }
-  return { removeClasses, addClasses };
+
+  /**
+   * convert vh to px
+   * @param {Number} v vh value
+   * @returns vh in px
+   */
+  function vh(v) {
+    var h = Math.max(
+      document.documentElement.clientHeight,
+      window.innerHeight || 0
+    );
+    return (v * h) / 100;
+  }
+
+  /**
+   * convert vw to px
+   * @param {Number} v vw value
+   * @returns vw in px
+   */
+  function vw(v) {
+    var w = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0
+    );
+    return (v * w) / 100;
+  }
+
+  /**
+   * convert rem to px
+   * @param {Number} rem rem value
+   * @returns rem in px
+   */
+  function rem(rem) {
+    return (
+      rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+    );
+  }
+  return { removeClasses, addClasses, vh, vw, rem };
 }

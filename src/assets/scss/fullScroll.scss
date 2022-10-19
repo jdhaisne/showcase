@@ -9,6 +9,10 @@ html {
   .fullpage {
     height: 100vh;
     width: 100%;
+    &--centred {
+      display: flex;
+      justify-content: center;
+    }
   }
   
   .section-menu {

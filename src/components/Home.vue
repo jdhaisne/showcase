@@ -11,17 +11,41 @@ export default {
 </script>
 
 <template>
-  <div>
-    <section class="container presentation-section">
-      <div class="info-wrapper">
-        <h1 class="title">Julien Dhaisne</h1>
-        <p class="subtitle">Full-Stack Developer</p>
-      </div>
+  <div class="homepage__wrapper">
+    <section class="homepage container">
+      <h1 class="homepage__title">Julien Dhaisne</h1>
+      <p class="homepage__subtitle">Full-Stack Developer</p>
     </section>
+    <div class="homepage__down_arrow">
+      Scroll down to discover more about me.
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
+.homepage {
+  width: 100%;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  &__title {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    font-family: "minipax";
+  }
+  &__subtitle {
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+  }
+  &__down_arrow {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
 .svg {
   height: 100vh;
   width: 100%;
@@ -33,30 +57,8 @@ export default {
   top: 0;
 }
 
-.presentation-section {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .image-side {
   transform: scaleX(-1);
   z-index: 0;
-}
-
-.title {
-  font-size: 4rem;
-  letter-spacing: 2px;
-  font-family: "minipax";
-}
-
-.subtitle {
-  font-size: 2rem;
-  font-family: "Montserrat", sans-serif;
-}
-
-.info-wrapper {
-  width: max-content;
 }
 </style>
