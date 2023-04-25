@@ -85,6 +85,7 @@ export function useScroll() {
   };
 
   const touchMove = (event) => {
+    console.log(event);
     if (inMove) return false;
     event.preventDefault();
 
