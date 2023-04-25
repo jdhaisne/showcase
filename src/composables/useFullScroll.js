@@ -36,7 +36,7 @@ export function useScroll() {
       event.preventDefault();
       moveDown();
     }
-    event.preventDefault();
+    // event.preventDefault();
   };
 
   const handleMouseWheel = (event) => {

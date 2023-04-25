@@ -10,6 +10,7 @@ import Home from "/src/components/Home.vue";
 import AboutMeSlideShow from "/src/components/AboutMeSlideShow.vue";
 import Resume from "/src/components/Resume.vue";
 import FullPage from "/src/components/FullPage.vue";
+import AboutMeView from "/src/components/AboutMeView.vue";
 
 import "/src/assets/scss/index.scss";
 
@@ -20,7 +21,8 @@ app
   .component("Home", Home)
   .component("AboutMeSlideShow", AboutMeSlideShow)
   .component("Resume", Resume)
-  .component("FullPage", FullPage);
+  .component("FullPage", FullPage)
+  .component("AboutMeView", AboutMeView);
 
 app.use(router);
 app.use(VueFullPage);

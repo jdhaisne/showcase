@@ -23,6 +23,9 @@
   <section class="fullpage fullpage--centred">
     <Home> </Home>
   </section>
+  <section class="fullpage fullpage--text-centred">
+    <AboutMeView> </AboutMeView>
+  </section>
   <section class="fullpage">
     <hr />
     <AboutMeSlideShow> </AboutMeSlideShow>

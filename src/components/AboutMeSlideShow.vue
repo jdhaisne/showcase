@@ -9,14 +9,19 @@
     <div class="slides">
       <div class="slide active about_me__slide" data-index="0">
         <AboutMe bgColor="grey">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          pretium porta lacus vel pellentesque. Praesent magna sem, lobortis
-          vitae consectetur in, cursus at nulla. Vestibulum a massa tincidunt,
-          ornare nulla a, placerat nisl. Phasellus sagittis, lorem porttitor
-          maximus ornare, neque leo cursus tellus, non commodo diam nibh ut
-          tortor. Vestibulum gravida feugiat tortor
+          Passionné depuis longtemps d'informatique, j'ai pu lors de mon passage
+          à l'école 42 découvrir la diversité du métier de développeur. Cela m'a
+          permis de me former à la fois sur les technologies web que de
+          continuer à explorer ce métier a travers l'IA l’or de ma formation a
+          l’école Microsoft. Étant, au départ, plutôt tournée vers la tech mon
+          passage au sein de Matrice, l'école m'a permis d'apprendre à
+          identifier et à répondre au besoin de mes clients de la manière
+          optimale. De nature curieuse, j'ai l'habitude de me former en
+          rapidement aux nouvelles technologies qui pourrait m'être nécessaire.
+          Ayant longtemps pratiqué seule, je cherche aujourd'hui à enrichir mon
+          expérience en rejoignant une équipe, n’hésitez pas à me contacter !
         </AboutMe>
-        <p>
+        <!-- <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           pretium porta lacus vel pellentesque. Praesent magna sem, lobortis
           vitae consectetur in, cursus at nulla. Vestibulum a massa tincidunt,
@@ -45,7 +50,7 @@
           commodo mauris ac nibh sollicitudin imperdiet. Pellentesque
           ullamcorper, turpis id vehicula tempor, neque turpis feugiat lorem,
           aliquet commodo enim felis id sapien.
-        </p>
+        </p> -->
       </div>
       <div class="bgred slide next" data-index="1">slide 2</div>
       <div class="bggreen slide" data-index="2">slide 3</div>

@@ -13,6 +13,11 @@ html {
       display: flex;
       justify-content: center;
     }
+    &--text-centred {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
   }
   
   .section-menu {
